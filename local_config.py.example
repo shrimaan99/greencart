@@ -1,0 +1,22 @@
+# =====================================================================
+#  OPTIONAL - only for running the website on YOUR OWN computer.
+#  1. Copy this file and name the copy  local_config.py
+#  2. Put your values below
+#  NEVER upload local_config.py to GitHub (it holds passwords and keys).
+# =====================================================================
+
+# ---- Your local MySQL (Workbench) -----------------------------------
+DB_HOST = "localhost"
+DB_PORT = 3306
+DB_USER = "root"
+DB_PASSWORD = "YOUR_MYSQL_PASSWORD"
+DB_NAME = "ecommerce_db"
+DB_SSL = "false"
+
+# ---- Supabase sign-in (leave these lines OUT while testing without Supabase) ----
+# With these filled in, only people with a confirmed real email can log in.
+# SUPABASE_URL = "https://YOUR-PROJECT-REF.supabase.co"
+# SUPABASE_PUBLISHABLE_KEY = "sb_publishable_..."
+# SUPABASE_SECRET_KEY = "sb_secret_..."       # used only to store seller pictures
+# SUPABASE_BUCKET = "product-images"
+# SITE_URL = "http://127.0.0.1:5000"          # the address of this website
