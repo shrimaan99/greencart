@@ -1,0 +1,55 @@
+{% extends "store_base.html" %}
+{% from "store_macros.html" import status_pill %}
+{% block title %}Order #{{ order.order_id }} - GreenCart{% endblock %}
+{% block content %}
+<div class="container">
+    <nav class="breadcrumb"><a href="{{ url_for('orders') }}">My orders</a> <span>/</span> Order #{{ order.order_id }}</nav>
+    <h1 class="page-title">Order #{{ order.order_id }} {{ status_pill(order.order_status) }}</h1>
+
+    <div class="order-grid">
+        <div class="box">
+            <h3>Order details</h3>
+            <dl>
+                <dt>Placed on</dt><dd>{{ order.order_date.strftime('%d %b %Y, %I:%M %p') }}</dd>
+                <dt>Delivery address</dt><dd>{{ order.shipping_address }}</dd>
+                <dt>Payment</dt><dd>{{ order.payment_method }} &middot; {{ order.payment_status }}</dd>
+                <dt>Tracking number</dt><dd>{{ order.tracking_number or 'Not shipped yet' }}</dd>
+                <dt>Expected delivery</dt><dd>{{ order.expected_delivery.strftime('%d %b %Y') if order.expected_delivery else '-' }}</dd>
+                <dt>Delivered on</dt><dd>{{ order.delivered_date.strftime('%d %b %Y') if order.delivered_date else '-' }}</dd>
+            </dl>
+        </div>
+        <div class="box">
+            <h3>Order progress</h3>
+            <ul class="timeline">
+                {% for h in history %}
+                <li><strong>{{ h.new_status }}</strong><span class="muted">{{ h.changed_at.strftime('%d %b %Y, %I:%M %p') }}</span></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="section-title">Items</h2>
+    <div class="items-table">
+        {% for i in items %}
+        <div class="items-row">
+            <a href="{{ url_for('product_page', product_id=i.product_id) }}">{{ i.product_name }}</a>
+            <span>&#8377;{{ '{:,.2f}'.format(i.unit_price) }} &times; {{ i.quantity }}</span>
+            <strong>&#8377;{{ '{:,.2f}'.format(i.subtotal) }}</strong>
+            <span>
+                {% if order.order_status == 'Delivered' and i.product_id not in reviewed %}
+                    <a class="link-btn" href="{{ url_for('product_page', product_id=i.product_id) }}#reviews">Write a review</a>
+                {% elif order.order_status == 'Delivered' %}<span class="muted">Reviewed</span>{% endif %}
+            </span>
+        </div>
+        {% endfor %}
+        <div class="items-row items-total"><span>Total</span><span></span><strong>&#8377;{{ '{:,.2f}'.format(order.total_amount) }}</strong><span></span></div>
+    </div>
+
+    {% if order.order_status in ['Confirmed', 'Packed'] %}
+    <form method="POST" action="{{ url_for('order_cancel', order_id=order.order_id) }}"
+          onsubmit="return confirm('Cancel this order?');" class="cancel-form">
+        <button class="btn btn-danger" type="submit">Cancel order</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

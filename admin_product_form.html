@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Add product' if is_new else 'Edit product' }} - GreenCart Admin{% endblock %}
+{% block content %}
+<p><a href="{{ url_for('admin_products') }}">&larr; Back to products</a></p>
+
+<div class="auth-card" style="max-width:560px;">
+    <h2>{{ 'Add a new product' if is_new else 'Edit product' }}</h2>
+    <form method="POST">
+        <label for="product_name">Product name</label>
+        <input type="text" id="product_name" name="product_name" value="{{ product.get('product_name', '') }}" required>
+
+        <label for="category_id">Category</label>
+        <select id="category_id" name="category_id" required>
+            {% for c in categories %}
+                <option value="{{ c.category_id }}"
+                    {% if product.get('category_id')|string == c.category_id|string %}selected{% endif %}>
+                    {{ c.category_name }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="3" maxlength="500">{{ product.get('description') or '' }}</textarea>
+
+        <label for="image_url">Image link (optional)</label>
+        <input type="text" id="image_url" name="image_url" placeholder="https://...  (or /assets/products/name.svg)" value="{{ product.get('image_url') or '' }}">
+
+        <label for="price">Price (&#8377;)</label>
+        <input type="number" id="price" name="price" step="0.01" min="0.01" value="{{ product.get('price', '') }}" required>
+
+        {% if is_new %}
+        <label for="stock">Opening stock (items)</label>
+        <input type="number" id="stock" name="stock" min="0" value="{{ product.get('stock', 0) }}" required>
+
+        <label for="reorder_level">Reorder level (low-stock warning)</label>
+        <input type="number" id="reorder_level" name="reorder_level" min="0" value="{{ product.get('reorder_level', 5) }}" required>
+        {% else %}
+        <label style="display:flex; gap:8px; align-items:center;">
+            <input type="checkbox" name="is_active" style="width:auto;" {% if product.get('is_active') %}checked{% endif %}>
+            Visible in the shop
+        </label>
+        <p class="muted small">Stock is changed from the Inventory page. Price changes are recorded automatically in the price history.</p>
+        {% endif %}
+
+        <button class="btn" type="submit">{{ 'Add Product' if is_new else 'Save Changes' }}</button>
+    </form>
+</div>
+{% endblock %}

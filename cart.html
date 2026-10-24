@@ -1,0 +1,68 @@
+{% extends "store_base.html" %}
+{% from "store_macros.html" import product_art %}
+{% block title %}Your cart - GreenCart{% endblock %}
+{% block content %}
+<div class="container">
+    <h1 class="page-title">Your cart</h1>
+
+    {% if items %}
+    <div class="cart-layout">
+        <div class="cart-lines">
+            {% for i in items %}
+            <div class="cart-line">
+                <a class="cart-thumb" href="{{ url_for('product_page', product_id=i.product_id) }}">{{ product_art(i) }}</a>
+                <div class="cart-info">
+                    <a class="cart-name" href="{{ url_for('product_page', product_id=i.product_id) }}">{{ i.product_name }}</a>
+                    <span class="muted">&#8377;{{ '{:,.2f}'.format(i.price) }} each</span>
+                    {% if i.quantity > i.quantity_available %}
+                        <span class="warn">Only {{ i.quantity_available }} available. Please reduce the quantity.</span>
+                    {% else %}
+                        <span class="muted">{{ i.quantity_available }} in stock</span>
+                    {% endif %}
+                    <form method="POST" action="{{ url_for('cart_remove') }}">
+                        <input type="hidden" name="cart_item_id" value="{{ i.cart_item_id }}">
+                        <button class="link-btn" type="submit">Remove</button>
+                    </form>
+                </div>
+                <form class="cart-qty" method="POST" action="{{ url_for('cart_update') }}">
+                    <input type="hidden" name="cart_item_id" value="{{ i.cart_item_id }}">
+                    <div class="stepper">
+                        <button type="button" data-step="-1" aria-label="Less">&minus;</button>
+                        <input type="number" name="quantity" value="{{ i.quantity }}" min="0">
+                        <button type="button" data-step="1" aria-label="More">+</button>
+                    </div>
+                    <button class="link-btn" type="submit">Update</button>
+                </form>
+                <div class="cart-total">&#8377;{{ '{:,.2f}'.format(i.line_total) }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <aside class="summary">
+            <h3>Order summary</h3>
+            <div class="sum-row"><span>Subtotal</span><span>&#8377;{{ '{:,.2f}'.format(total) }}</span></div>
+            <div class="sum-row"><span>Delivery</span><span>Free</span></div>
+            <div class="sum-row sum-total"><span>Total</span><span>&#8377;{{ '{:,.2f}'.format(total) }}</span></div>
+
+            <form method="POST" action="{{ url_for('checkout') }}">
+                <label>Delivery address
+                    <input type="text" name="shipping_address" value="{{ default_address }}" required>
+                </label>
+                <label>Payment method
+                    <select name="payment_method" required>
+                        {% for m in methods %}<option value="{{ m }}">{{ m }}</option>{% endfor %}
+                    </select>
+                </label>
+                <p class="muted small">Payment is simulated for this project. Online methods are recorded as paid; cash on delivery stays pending until delivery.</p>
+                <button class="btn btn-wide" type="submit">Place order</button>
+            </form>
+        </aside>
+    </div>
+    {% else %}
+    <div class="empty">
+        <p>Your cart is empty.</p>
+        <a class="btn" href="{{ url_for('shop') }}">Continue shopping</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

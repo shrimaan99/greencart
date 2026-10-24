@@ -1,0 +1,110 @@
+{% extends "store_base.html" %}
+{% from "store_macros.html" import product_art, stars, product_card %}
+{% block title %}{{ p.product_name }} - GreenCart{% endblock %}
+{% block content %}
+<div class="container">
+    <nav class="breadcrumb">
+        <a href="{{ url_for('home') }}">Home</a> <span>/</span>
+        <a href="{{ url_for('shop', category=p.category_id) }}">{{ p.category_name }}</a> <span>/</span> {{ p.product_name }}
+    </nav>
+
+    <div class="product-layout">
+        <div class="product-gallery">{{ product_art(p) }}</div>
+
+        <div class="product-details">
+            <span class="card-cat">{{ p.category_name }}</span>
+            <h1>{{ p.product_name }}</h1>
+            <div class="rating-line">
+                {% if p.review_count %}{{ stars(p.avg_rating) }} <a href="#reviews">{{ p.avg_rating }} &middot; {{ p.review_count }} review{{ '' if p.review_count == 1 else 's' }}</a>
+                {% else %}<a href="#reviews" class="muted">No reviews yet</a>{% endif %}
+            </div>
+            <div class="price big">&#8377;{{ '{:,.2f}'.format(p.price) }}</div>
+            <p class="muted">Inclusive of all taxes. Free delivery.</p>
+
+            <p class="stock-line">
+                {% if p.quantity_available == 0 %}<span class="dot dot-out"></span> Sold out
+                {% elif p.stock_status == 'Low Stock' %}<span class="dot dot-low"></span> Only {{ p.quantity_available }} left in stock
+                {% else %}<span class="dot dot-in"></span> {{ p.quantity_available }} in stock{% endif %}
+                {% if in_cart %}<span class="muted"> &nbsp;&middot;&nbsp; {{ in_cart }} already in your cart</span>{% endif %}
+            </p>
+
+            {% if p.quantity_available > 0 %}
+            <form class="buy-form" method="POST" action="{{ url_for('cart_add') }}">
+                <input type="hidden" name="product_id" value="{{ p.product_id }}">
+                <input type="hidden" name="next" value="{{ url_for('product_page', product_id=p.product_id) }}">
+                <div class="stepper">
+                    <button type="button" data-step="-1" aria-label="Less">&minus;</button>
+                    <input type="number" name="quantity" value="1" min="1" max="{{ p.quantity_available }}">
+                    <button type="button" data-step="1" aria-label="More">+</button>
+                </div>
+                <button class="btn btn-wide" type="submit">Add to cart</button>
+            </form>
+            {% else %}
+                <button class="btn btn-wide" disabled>Sold out</button>
+            {% endif %}
+
+            <details class="accordion" open>
+                <summary>Description</summary>
+                <p>{{ p.description or 'No description available.' }}</p>
+            </details>
+            <details class="accordion">
+                <summary>Delivery &amp; returns</summary>
+                <p>Orders are packed and shipped quickly, and delivery is free. You can cancel an order any time before it is shipped; stock is restored and any online payment is refunded.</p>
+            </details>
+            <details class="accordion">
+                <summary>Payment options</summary>
+                <p>UPI, credit card, debit card, net banking and cash on delivery.</p>
+            </details>
+        </div>
+    </div>
+
+    <section class="reviews" id="reviews">
+        <h2>Customer reviews</h2>
+
+        {% if can_review %}
+        <div class="review-form">
+            <h4>Write a review</h4>
+            <form method="POST" action="{{ url_for('review') }}">
+                <input type="hidden" name="product_id" value="{{ p.product_id }}">
+                <label>Rating
+                    <select name="rating" required>
+                        <option value="5">5 - Excellent</option>
+                        <option value="4">4 - Good</option>
+                        <option value="3">3 - Average</option>
+                        <option value="2">2 - Poor</option>
+                        <option value="1">1 - Terrible</option>
+                    </select>
+                </label>
+                <label>Your comment
+                    <textarea name="comment" rows="3" maxlength="500"></textarea>
+                </label>
+                <button class="btn" type="submit">Submit review</button>
+            </form>
+        </div>
+        {% elif reviewed %}
+            <p class="muted">You have already reviewed this product. Thank you!</p>
+        {% else %}
+            <p class="muted">You can review this product after it has been delivered to you.</p>
+        {% endif %}
+
+        {% for r in reviews %}
+        <div class="review">
+            <div class="review-head"><strong>{{ r.customer_name }}</strong> {{ stars(r.rating) }}
+                <span class="muted">{{ r.review_date.strftime('%d %b %Y') }}</span></div>
+            <p>{{ r.comment or '' }}</p>
+        </div>
+        {% else %}
+            <p class="muted">No reviews yet.</p>
+        {% endfor %}
+    </section>
+
+    {% if related %}
+    <section class="related">
+        <h2>You may also like</h2>
+        <div class="product-grid">
+            {% for r in related %}{{ product_card(r, url_for('product_page', product_id=p.product_id)) }}{% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</div>
+{% endblock %}
