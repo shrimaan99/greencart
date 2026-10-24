@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2ece5"/><stop offset="1" stop-color="#e2d8cb"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffffff" stop-opacity=".8"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+<radialGradient id="shadow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".30"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+<linearGradient id="cover" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#ff7a2f"/></linearGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/>
+<circle cx="400" cy="470" r="340" fill="url(#glow)"/>
+<g transform="translate(400 500) scale(1.2) translate(-400 -500)">
+<ellipse cx="405" cy="770" rx="215" ry="24" fill="url(#shadow)"/>
+<g transform="rotate(-2 405 480)">
+<path d="M548 244 L572 258 L572 694 L548 682 Z" fill="#f4f0e6"/>
+<path d="M556 252 L556 688 M562 256 L562 690 M567 258 L567 692" stroke="#d9d3c4" stroke-width="2"/>
+<path d="M262 682 L548 682 L572 696 L286 696 Z" fill="#e6e0d2"/>
+<rect x="258" y="236" width="292" height="446" rx="8" fill="url(#cover)"/>
+<rect x="258" y="236" width="30" height="446" rx="8" fill="#d9581a"/>
+<rect x="286" y="236" width="3" height="446" fill="#ffffff" opacity=".18"/>
+
+<g fill="none" stroke="#ffffff" stroke-width="7" opacity=".95">
+<ellipse cx="424" cy="400" rx="104" ry="36"/>
+<ellipse cx="424" cy="400" rx="104" ry="36" transform="rotate(60 424 400)"/>
+<ellipse cx="424" cy="400" rx="104" ry="36" transform="rotate(-60 424 400)"/>
+</g>
+<circle cx="424" cy="400" r="19" fill="#ffffff"/>
+<text x="424" y="570" font-family="DM Sans, Arial, sans-serif" font-size="50" font-weight="700" letter-spacing="5" text-anchor="middle" fill="#2a1a10">ATOMIC</text>
+<text x="424" y="626" font-family="DM Sans, Arial, sans-serif" font-size="50" font-weight="700" letter-spacing="5" text-anchor="middle" fill="#2a1a10">HABITS</text>
+
+<rect x="300" y="236" width="12" height="446" fill="#ffffff" opacity=".09"/>
+</g>
+
+</g>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f1e5"/><stop offset="1" stop-color="#e8dfc9"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffffff" stop-opacity=".8"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+<radialGradient id="shadow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".30"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+<linearGradient id="outer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4f57"/><stop offset="1" stop-color="#1f2227"/></linearGradient><linearGradient id="handle" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4048"/><stop offset="1" stop-color="#1f2227"/></linearGradient><radialGradient id="inner" cx="40%" cy="38%" r="75%"><stop offset="0" stop-color="#4b5058"/><stop offset="1" stop-color="#1b1d21"/></radialGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/>
+<circle cx="400" cy="470" r="340" fill="url(#glow)"/>
+<g transform="translate(400 500) scale(1.0) translate(-400 -500)">
+<ellipse cx="380" cy="770" rx="280" ry="30" fill="url(#shadow)"/>
+<path d="M520 482 L694 470 Q722 470 722 497 Q722 524 694 526 L520 518 Z" fill="url(#handle)"/>
+<rect x="570" y="478" width="118" height="42" rx="12" fill="#ff7a45" opacity=".95"/>
+<circle cx="706" cy="497" r="9" fill="#efe8d8"/>
+<circle cx="330" cy="500" r="208" fill="url(#outer)"/>
+<circle cx="330" cy="500" r="176" fill="url(#inner)"/>
+<circle cx="330" cy="500" r="84" fill="none" stroke="#ffffff" stroke-width="3" opacity=".12"/>
+<path d="M205 400 C250 330 340 312 420 340" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" opacity=".13"/>
+<circle cx="518" cy="486" r="8" fill="#9aa3b0"/><circle cx="518" cy="514" r="8" fill="#9aa3b0"/>
+
+</g>
+</svg>

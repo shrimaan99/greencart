@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="1" stop-color="#d9e0ea"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffffff" stop-opacity=".8"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+<radialGradient id="shadow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".30"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+<linearGradient id="pb" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f7f9fc"/><stop offset="1" stop-color="#d3dae5"/></linearGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/>
+<circle cx="400" cy="470" r="340" fill="url(#glow)"/>
+<g transform="translate(400 500) scale(1.2) translate(-400 -500)">
+<ellipse cx="400" cy="778" rx="175" ry="26" fill="url(#shadow)"/>
+<clipPath id="pbclip"><rect x="288" y="262" width="224" height="470" rx="42"/></clipPath>
+<rect x="288" y="262" width="224" height="470" rx="42" fill="url(#pb)"/>
+<rect x="288" y="262" width="224" height="108" fill="#2f3948" clip-path="url(#pbclip)"/>
+<rect x="326" y="302" width="28" height="12" rx="6" fill="#ffb020"/><rect x="362" y="302" width="28" height="12" rx="6" fill="#ffb020"/>
+<rect x="398" y="302" width="28" height="12" rx="6" fill="#ffb020"/><rect x="434" y="302" width="28" height="12" rx="6" fill="#5b6679"/>
+<text x="400" y="505" font-family="DM Sans, Arial, sans-serif" font-size="33" font-weight="700" text-anchor="middle" fill="#2f3948">10000mAh</text>
+<text x="400" y="545" font-family="DM Sans, Arial, sans-serif" font-size="19" letter-spacing="4" text-anchor="middle" fill="#7b8596">FAST CHARGE</text>
+<rect x="326" y="660" width="76" height="22" rx="9" fill="#2f3948"/><rect x="418" y="660" width="44" height="22" rx="9" fill="#2f3948"/>
+<rect x="302" y="392" width="14" height="250" rx="7" fill="#ffffff" opacity=".75"/>
+
+</g>
+</svg>
