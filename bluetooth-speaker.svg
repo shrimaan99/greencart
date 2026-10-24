@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="1" stop-color="#d9e0ea"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffffff" stop-opacity=".8"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+<radialGradient id="shadow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".30"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+<linearGradient id="spk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7a8ba2"/><stop offset="1" stop-color="#3f4c61"/></linearGradient><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="4.2" fill="#8a9bb2"/></pattern>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/>
+<circle cx="400" cy="470" r="340" fill="url(#glow)"/>
+<g transform="translate(400 500) scale(1.2) translate(-400 -500)">
+<ellipse cx="400" cy="775" rx="210" ry="28" fill="url(#shadow)"/>
+<clipPath id="body"><rect x="285" y="290" width="230" height="440" rx="72"/></clipPath>
+<path d="M356 300 C356 215 444 215 444 300" fill="none" stroke="#2a3342" stroke-width="16" stroke-linecap="round"/>
+<rect x="285" y="290" width="230" height="440" rx="72" fill="url(#spk)"/>
+<rect x="306" y="372" width="188" height="268" rx="42" fill="#27303e"/>
+<rect x="306" y="372" width="188" height="268" rx="42" fill="url(#dots)"/>
+<circle cx="350" cy="332" r="11" fill="#d6deea"/><circle cx="400" cy="332" r="15" fill="#ffffff"/><circle cx="450" cy="332" r="11" fill="#d6deea"/>
+<rect x="285" y="668" width="230" height="26" fill="#ff6b4a" clip-path="url(#body)"/>
+<rect x="298" y="312" width="16" height="380" rx="8" fill="#ffffff" opacity=".2"/>
+
+</g>
+</svg>

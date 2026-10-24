@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9f0f2"/><stop offset="1" stop-color="#d3e2e6"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffffff" stop-opacity=".8"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+<radialGradient id="shadow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".30"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+<linearGradient id="upper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8864"/><stop offset="1" stop-color="#e2472f"/></linearGradient><linearGradient id="sole" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f5f1"/><stop offset="1" stop-color="#d6d5cf"/></linearGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/>
+<circle cx="400" cy="470" r="340" fill="url(#glow)"/>
+<g transform="translate(400 500) scale(1.2) translate(-400 -500)">
+<ellipse cx="420" cy="750" rx="290" ry="26" fill="url(#shadow)"/>
+<path d="M165 640 C165 690 200 712 255 712 L612 712 C668 712 695 688 695 654 L695 626 L165 626 Z" fill="url(#sole)"/>
+<path d="M180 702 L682 702" stroke="#2f3948" stroke-width="7" opacity=".35"/>
+<path d="M180 626 C172 518 214 456 290 436 C330 426 352 398 384 378 C446 338 524 378 564 444 C614 468 695 520 695 626 Z" fill="url(#upper)"/>
+<path d="M564 444 C614 468 695 520 695 626 L566 626 C568 560 568 500 564 444 Z" fill="#ffffff" opacity=".2"/>
+<path d="M180 626 C172 518 214 456 290 436 L300 626 Z" fill="#b8352a" opacity=".55"/>
+<path d="M302 440 C332 428 354 400 384 380 C412 366 440 372 456 388 C424 424 384 452 334 472 Z" fill="#2f3948"/>
+<g stroke="#ffffff" stroke-width="11" stroke-linecap="round"><path d="M398 438 L446 478"/><path d="M430 414 L476 454"/><path d="M462 396 L506 436"/><path d="M494 392 L532 428"/></g>
+<path d="M255 604 C340 560 450 540 556 598" fill="none" stroke="#ffffff" stroke-width="15" stroke-linecap="round" opacity=".92"/>
+<rect x="165" y="626" width="530" height="13" fill="#ff7a59" opacity=".95"/>
+
+</g>
+</svg>

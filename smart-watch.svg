@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="1" stop-color="#d9e0ea"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffffff" stop-opacity=".8"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+<radialGradient id="shadow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".30"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+<linearGradient id="strap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a4556"/><stop offset="1" stop-color="#171c26"/></linearGradient><linearGradient id="case" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a2adbd"/><stop offset="1" stop-color="#4a5465"/></linearGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/>
+<circle cx="400" cy="470" r="340" fill="url(#glow)"/>
+<g transform="translate(400 500) scale(1.15) translate(-400 -500)">
+<ellipse cx="400" cy="800" rx="170" ry="24" fill="url(#shadow)"/>
+<path d="M338 235 L462 235 L478 415 L322 415 Z" fill="url(#strap)"/>
+<path d="M322 615 L478 615 L462 770 L338 770 Z" fill="url(#strap)"/>
+<circle cx="400" cy="672" r="7" fill="#0b0e14" opacity=".55"/><circle cx="400" cy="706" r="7" fill="#0b0e14" opacity=".55"/><circle cx="400" cy="740" r="7" fill="#0b0e14" opacity=".55"/>
+<rect x="506" y="462" width="16" height="52" rx="7" fill="#6d7788"/><rect x="506" y="536" width="11" height="34" rx="5" fill="#6d7788"/>
+<rect x="288" y="388" width="224" height="256" rx="64" fill="url(#case)"/>
+<rect x="303" y="403" width="194" height="226" rx="52" fill="#0b0e14"/>
+<g transform="rotate(-90 400 516)" fill="none" stroke-linecap="round" stroke-width="14">
+<circle cx="400" cy="516" r="62" stroke="#ff4d5e" opacity=".22"/><circle cx="400" cy="516" r="62" stroke="#ff4d5e" stroke-dasharray="300 90"/>
+<circle cx="400" cy="516" r="41" stroke="#ffd23f" opacity=".22"/><circle cx="400" cy="516" r="41" stroke="#ffd23f" stroke-dasharray="170 90"/>
+<circle cx="400" cy="516" r="20" stroke="#4db8ff" opacity=".22"/><circle cx="400" cy="516" r="20" stroke="#4db8ff" stroke-dasharray="85 45"/>
+</g>
+<path d="M312 414 L408 408 L312 530 Z" fill="#ffffff" opacity=".07"/>
+
+</g>
+</svg>

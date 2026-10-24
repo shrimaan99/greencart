@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9f0f2"/><stop offset="1" stop-color="#d3e2e6"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffffff" stop-opacity=".8"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+<radialGradient id="shadow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".30"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+<linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9edf2"/><stop offset="1" stop-color="#7e8896"/></linearGradient><linearGradient id="rubber" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a3b42"/><stop offset="1" stop-color="#141417"/></linearGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/>
+<circle cx="400" cy="470" r="340" fill="url(#glow)"/>
+<g transform="translate(400 500) scale(1.3) translate(-400 -500)">
+<ellipse cx="400" cy="770" rx="270" ry="30" fill="url(#shadow)"/>
+<rect x="268" y="405" width="264" height="30" rx="11" fill="url(#chrome)"/>
+<g stroke="#6f7886" stroke-width="2" opacity=".55"><path d="M338 407 V433 M352 407 V433 M366 407 V433 M434 407 V433 M448 407 V433 M462 407 V433"/></g>
+<rect x="212" y="344" width="82" height="152" rx="22" fill="url(#rubber)"/>
+<rect x="290" y="368" width="28" height="104" rx="9" fill="#3c3d43"/>
+<rect x="506" y="344" width="82" height="152" rx="22" fill="url(#rubber)"/>
+<rect x="482" y="368" width="28" height="104" rx="9" fill="#3c3d43"/>
+<text x="253" y="433" font-family="DM Sans, Arial, sans-serif" font-size="36" font-weight="700" text-anchor="middle" fill="#ff7a45">5</text>
+<text x="547" y="433" font-family="DM Sans, Arial, sans-serif" font-size="36" font-weight="700" text-anchor="middle" fill="#ff7a45">5</text>
+<rect x="222" y="356" width="10" height="100" rx="5" fill="#ffffff" opacity=".15"/>
+<rect x="516" y="356" width="10" height="100" rx="5" fill="#ffffff" opacity=".15"/>
+
+<rect x="268" y="595" width="264" height="30" rx="11" fill="url(#chrome)"/>
+<g stroke="#6f7886" stroke-width="2" opacity=".55"><path d="M338 597 V623 M352 597 V623 M366 597 V623 M434 597 V623 M448 597 V623 M462 597 V623"/></g>
+<rect x="212" y="534" width="82" height="152" rx="22" fill="url(#rubber)"/>
+<rect x="290" y="558" width="28" height="104" rx="9" fill="#3c3d43"/>
+<rect x="506" y="534" width="82" height="152" rx="22" fill="url(#rubber)"/>
+<rect x="482" y="558" width="28" height="104" rx="9" fill="#3c3d43"/>
+<text x="253" y="623" font-family="DM Sans, Arial, sans-serif" font-size="36" font-weight="700" text-anchor="middle" fill="#ff7a45">5</text>
+<text x="547" y="623" font-family="DM Sans, Arial, sans-serif" font-size="36" font-weight="700" text-anchor="middle" fill="#ff7a45">5</text>
+<rect x="222" y="546" width="10" height="100" rx="5" fill="#ffffff" opacity=".15"/>
+<rect x="516" y="546" width="10" height="100" rx="5" fill="#ffffff" opacity=".15"/>
+
+</g>
+</svg>
